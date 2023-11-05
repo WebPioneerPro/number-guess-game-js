@@ -25,9 +25,11 @@ function guess_the_number() {
 6. The game ends when the user correctly guesses the number.
 7. The final score will be displayed on the screen along with a message based on their performance.`)
     console.log('');
+    //Using readlineSync to take user input
+    const readlineSync = require('readline-sync');
 
     // Ask the user if they want to play
-    let play_or_not = prompt("Do you want to play? (Y/N)");
+    let play_or_not = readlineSync.question("Do you want to play? (Y/N): ");
 
     if (play_or_not.toUpperCase() == 'Y') {
         // Generate a random number for the game
@@ -36,7 +38,7 @@ function guess_the_number() {
 
         while (true) {
             // Ask the user to guess the number
-            let guess_num = prompt('Guess the Number between 1 - 100');
+            let guess_num = readlineSync.question('Guess the Number between 1 - 100: ');
 
             if (guess_num == random_num) {
                 // If the guess is correct, display the score and exit the game
